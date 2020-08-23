@@ -1,6 +1,7 @@
 import csv
 
 from django.core.management.base import BaseCommand
+from slugify import slugify
 from phones.models import Phone
 
 
@@ -16,5 +17,10 @@ class Command(BaseCommand):
             next(phone_reader)
 
             for line in phone_reader:
+                phone = Phone(id=line[0], name=line[1], price=line[2],
+                              image=line[3], release_date=line[4],
+                              lte_exist=line[5], slug=slugify(line[1]))
+                phone.save()
                 # TODO: Добавьте сохранение модели
-                pass
+
+

@@ -8,7 +8,25 @@
             <h1>Телефон</h1>
         </div>
         <div class="content">
-
+            <table class="u-full-width" border="3px solid black">
+                <thead>
+                    <tr>
+                        {% for iter in callables %}
+                            <th><b>{{ iter}}</b></th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for phone in phones %}
+                        <tr>
+                            <td>{{phone.name}}</td>
+                            <td>{{phone.image}}</td>
+                            <td>{{phone.price}}</td>
+                            <td>{{phone.release_date}}</td>
+                            <td>{{phone.lte_exist}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
         </div>
     </div>
 {% endblock %}
