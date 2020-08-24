@@ -9,6 +9,18 @@
         </div>
 
         <div class="sort-block">
+            <ul>
+                <table class="u-fill-width" border="1px solid black">
+                    <tbody>
+                        <tr>
+                            <td><h4>Сортировка</h4></td>
+                            <td><a href="?sort=name">По названию</a></td>
+                            <td><a href="?sort=min_price">Цена по возрастанию</a></td>
+                            <td><a href="?sort=max_price">Цена по убыванию</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ul>
             {# Здесь должен быть раздел с сортировкой #}
         </div>
 
@@ -25,12 +37,11 @@
                     </thead>
                     <tbody>
                         {% for phone in phones %}
+                            {% url 'phone.image' as the_url %}
                             <tr>
-                                <td>{{phone.name}}</td>
-                                <td>{{phone.image}}</td>
+                                <td><a href="{{ phone.slug }}"> {{ phone.name}} </a></td>
+                                <td><a href="{{ phone.image }}">Image link</a></td>
                                 <td>{{phone.price}}</td>
-                                <td>{{phone.release_date}}</td>
-                                <td>{{phone.lte_exist}}</td>
                             </tr>
                         {% endfor %}
                     </tbody>

@@ -20,7 +20,7 @@
                     {% for phone in phones %}
                         <tr>
                             <td>{{phone.name}}</td>
-                            <td>{{phone.image}}</td>
+                            <td><a href="{{ phone.image }}">Image link</a></td>
                             <td>{{phone.price}}</td>
                             <td>{{phone.release_date}}</td>
                             <td>{{phone.lte_exist}}</td>
